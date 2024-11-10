@@ -102,7 +102,7 @@ function Home(props) {
                   <h1 className="h2 text-uppercase mb-3">
                     20% off on new season
                   </h1>
-                  <a className="btn btn-dark" href="./shop">
+                  <a className="btn btn-dark" href="/shop">
                     Browse collections
                   </a>
                 </div>
