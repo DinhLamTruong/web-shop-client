@@ -48,11 +48,11 @@ function Cart(props) {
   function getTotal(carts) {
     let sub_total = 0;
 
-    const sum_total = carts.map(value => {
+    carts.map(value => {
       return (sub_total +=
         parseInt(value._doc?.productId.price) * parseInt(value._doc?.quantity));
     });
-    console.log('sum_total', sum_total);
+    // console.log('sum_total', sum_total);
     setTotal(sub_total);
   }
 
@@ -82,7 +82,7 @@ function Cart(props) {
 
   //Hàm này dùng để truyền xuống cho component con xử và trả ngược dữ liệu lại component cha
   const onDeleteCart = (getUser, getProduct) => {
-    console.log('idUser: ' + getUser + ', idProduct: ' + getProduct);
+    // console.log('idUser: ' + getUser + ', idProduct: ' + getProduct);
 
     if (localStorage.getItem('id_user')) {
       // user đã đăng nhập
@@ -96,8 +96,8 @@ function Cart(props) {
 
         const query = '?' + queryString.stringify(params);
 
-        const response = await CartAPI.deleteToCart(query);
-        console.log(response);
+        await CartAPI.deleteToCart(query);
+        // console.log(response);
       };
 
       fetchDelete();
@@ -133,14 +133,14 @@ function Cart(props) {
 
   //Hàm này dùng để truyền xuống cho component con xử và trả ngược dữ liệu lại component cha
   const onUpdateCount = (getUser, getProduct, getCount) => {
-    console.log(
-      'Count: ' +
-        getCount +
-        ', idUser: ' +
-        getUser +
-        ', idProduct: ' +
-        getProduct
-    );
+    // console.log(
+    //   'Count: ' +
+    //     getCount +
+    //     ', idUser: ' +
+    //     getUser +
+    //     ', idProduct: ' +
+    //     getProduct
+    // );
 
     if (localStorage.getItem('id_user')) {
       // user đã đăng nhập

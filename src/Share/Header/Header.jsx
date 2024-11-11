@@ -46,7 +46,7 @@ function Header(props) {
 
   const handlerActive = value => {
     setActive(value);
-    console.log(value);
+    // console.log(value);
   };
 
   return (

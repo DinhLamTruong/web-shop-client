@@ -107,8 +107,7 @@ function SignUp(props) {
 
                 // const query = '?' + queryString.stringify(params);
 
-                const response = await UserAPI.postSignUp(params);
-                console.log(response);
+                await UserAPI.postSignUp(params);
 
                 setSuccess(true);
               };
@@ -124,8 +123,7 @@ function SignUp(props) {
 
                 const query = '?' + queryString.stringify(params);
 
-                const response = await MessengerAPI.postConversation(query);
-                console.log(response);
+                await MessengerAPI.postConversation(query);
               };
 
               fetchConversation();

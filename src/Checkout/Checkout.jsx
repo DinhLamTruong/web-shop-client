@@ -43,7 +43,7 @@ function Checkout(props) {
 
         const response = await CartAPI.getCarts(query);
 
-        console.log(response);
+        // console.log(response);
 
         setCarts(response);
 
@@ -147,9 +147,7 @@ function Checkout(props) {
 
         // const query = queryString.stringify(params);
 
-        const response = await CheckoutAPI.postEmail(params);
-
-        console.log(response);
+        await CheckoutAPI.postEmail(params);
       };
 
       sendMail();
@@ -164,9 +162,8 @@ function Checkout(props) {
       setTimeout(() => {
         setLoad(!load);
         setSuccess(!success);
-        
+
         setTimeout(() => {
-         
           window.location.reload();
         }, 1000);
       }, 4000);

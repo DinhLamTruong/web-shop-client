@@ -95,8 +95,7 @@ function SignIn(props) {
 
           const query = '?' + queryString.stringify(params);
 
-          const response = await CartAPI.postAddToCart(query);
-          console.log(response);
+          await CartAPI.postAddToCart(query);
         }
       }
     };

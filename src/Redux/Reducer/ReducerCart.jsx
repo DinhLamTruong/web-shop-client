@@ -7,7 +7,7 @@ const ReducerCart = (state = initalState, action) => {
 	switch (action.type) {
 		//Nhận dữ liệu id_user và thay đổi state
 		case 'ADD_USER':
-			console.log('id_user: ', action.data);
+			// console.log('id_user: ', action.data);
 
 			state = {
 				id_user: action.data,
@@ -17,7 +17,7 @@ const ReducerCart = (state = initalState, action) => {
 			return state;
 
 		case 'ADD_CART':
-			console.log(action.data);
+			// console.log(action.data);
 
 			//Lấy dữ liệu được truyền tới
 			const data_add_cart = action.data;
@@ -42,12 +42,12 @@ const ReducerCart = (state = initalState, action) => {
 				//Còn đã từng mua rồi thì mình update tại vị trí indexCart mà mình vừa tìm được
 				if (!findCart) {
 					add_cart.push(data_add_cart);
-					console.log('Push');
+					// console.log('Push');
 				} else {
 					add_cart[indexCart].count =
 						parseInt(add_cart[indexCart].count) +
 						parseInt(data_add_cart.count);
-					console.log('Update');
+					// console.log('Update');
 				}
 			}
 
@@ -56,7 +56,7 @@ const ReducerCart = (state = initalState, action) => {
 				listCart: add_cart,
 			};
 
-			console.log(state);
+			// console.log(state);
 
 			return state;
 
