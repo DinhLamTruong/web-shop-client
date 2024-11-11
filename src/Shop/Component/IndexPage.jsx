@@ -26,7 +26,7 @@ function IndexPage(props) {
 		handlerChangePage(value);
 	};
 
-	console.log(indexPage);
+	// console.log(indexPage);
 
 	return (
 		<div className='d-flex'>
