@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import UserAPI from '../API/UserAPI';
 import './Auth.css';
-import queryString from 'query-string';
-import MessengerAPI from '../API/MessengerAPI';
+// import queryString from 'query-string';
+// import MessengerAPI from '../API/MessengerAPI';
 
 SignUp.propTypes = {};
 
@@ -115,18 +115,18 @@ function SignUp(props) {
               fetchSignUp();
 
               //   Hàm này dùng để tạo các conversation cho user và admin
-              const fetchConversation = async () => {
-                const params = {
-                  email: email,
-                  password: password,
-                };
+              // const fetchConversation = async () => {
+              //   const params = {
+              //     email: email,
+              //     password: password,
+              //   };
 
-                const query = '?' + queryString.stringify(params);
+              //   const query = '?' + queryString.stringify(params);
 
-                await MessengerAPI.postConversation(query);
-              };
+              //   await MessengerAPI.postConversation(query);
+              // };
 
-              fetchConversation();
+              // fetchConversation();
             }
           }
         }

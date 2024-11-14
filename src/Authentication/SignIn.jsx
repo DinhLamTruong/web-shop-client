@@ -129,6 +129,7 @@ function SignIn(props) {
 
           <div className="wrap-input100 validate-input">
             <input
+              id="email"
               className="input100"
               type="text"
               placeholder="Email"
