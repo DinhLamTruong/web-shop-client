@@ -40,7 +40,7 @@ function SignIn(props) {
       setErrorEmail(true);
       return;
     } else {
-      if (!password) {
+      if (!password || password.trim().length < 8) {
         setErrorEmail(false);
         setErrorPassword(true);
         return;
