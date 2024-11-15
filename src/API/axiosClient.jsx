@@ -26,7 +26,20 @@ axiosClient.interceptors.response.use(
   },
   error => {
     // Handle errors
-    throw error;
+    // Check if the error has a response (i.e., from the server)
+    if (error.response) {
+      // Extract status and message from the server's response
+      const status = error.response.status;
+      const message = error.response.data.message || 'An error occurred';
+
+      const err = new Error();
+      err.status = status;
+      err.message = message;
+      throw err; // Re-throwing with custom object
+    }
+
+    // For network errors or other unexpected issues
+    throw new Error('Network error or no response from server');
   }
 );
 export default axiosClient;

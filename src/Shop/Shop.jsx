@@ -106,7 +106,7 @@ function Shop(props) {
       const totalPage = Math.ceil(
         parseInt(response.length) / parseInt(pagination.count)
       );
-      console.log(totalPage);
+      // console.log(totalPage);
 
       setTotalPage(totalPage);
     };

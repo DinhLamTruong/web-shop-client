@@ -15,7 +15,9 @@ function SignIn(props) {
 
   const [password, setPassword] = useState('');
 
-  const [user, setUser] = useState([]);
+  const [isSuccess, setIsSuccess] = useState(true);
+
+  // const [user, setUser] = useState([]);
 
   const [errorEmail, setErrorEmail] = useState(false);
   const [emailRegex, setEmailRegex] = useState(false);
@@ -59,22 +61,21 @@ function SignIn(props) {
           };
 
           const fetchData = async () => {
-            const response = await UserAPI.postLogin(query);
-            setUser(response);
-            localStorage.setItem('id_user', response.details._id);
+            try {
+              const response = await UserAPI.postLogin(query);
 
-            localStorage.setItem('name_user', response.details.fullname);
+              localStorage.setItem('id_user', response.details._id);
+              localStorage.setItem('name_user', response.details.fullname);
 
-            const action = addSession(localStorage.getItem('id_user'));
-            dispatch(action);
-            setRedirect(true);
-
-            setCheckPush(true);
+              const action = addSession(localStorage.getItem('id_user'));
+              dispatch(action);
+              setRedirect(true);
+              setCheckPush(true);
+            } catch (error) {
+              if (error.status === 422) setIsSuccess(false);
+            }
           };
           fetchData();
-
-          if (!user) {
-          }
         }
       }
     }
@@ -116,6 +117,9 @@ function SignIn(props) {
           <span className="login100-form-title p-b-33">Sign In</span>
 
           <div className="d-flex justify-content-center pb-5">
+            {!isSuccess && (
+              <span className="text-danger">* Invalid email or password!</span>
+            )}
             {emailRegex && (
               <span className="text-danger">* Incorrect Email Format</span>
             )}
