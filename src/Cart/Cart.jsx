@@ -158,17 +158,9 @@ function Cart(props) {
 
           await CartAPI.putToCart(query);
         } catch (error) {
-          // Kiểm tra xem response từ lỗi có tồn tại không
-          if (error.response) {
-            // kiểm tra status code
-            if (error.response.status === 409) {
-              alert(
-                'Số lượng hàng trong kho không đủ: ' +
-                  error.response.data.message
-              );
-            }
-          } else {
-            console.log('Error without response:', error);
+          // kiểm tra status code
+          if (error.status === 409) {
+            alert('Số lượng hàng trong kho không đủ: ' + error.message);
           }
         }
       };
