@@ -115,14 +115,8 @@ function Detail(props) {
             alertify.success('Bạn Đã Thêm Hàng Thành Công!');
           }
         } catch (error) {
-          // Kiểm tra xem response từ lỗi có tồn tại không
-          if (error.response) {
-            // kiểm tra status code
-            if (error.response.status === 409) {
-              alert(error.response.data.message);
-            }
-          } else {
-            console.log('Error without response:', error);
+          if (error.status === 409) {
+            alert(error.message);
           }
         }
       };
