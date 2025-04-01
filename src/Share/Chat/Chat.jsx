@@ -1,12 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
-import io from 'socket.io-client';
+import { io } from 'socket.io-client';
 
 import ChatRoomsAPI from '../../API/ChatRoomsAPI';
 import './Chat.css';
 
-const socket = io('https://web-shop-server.onrender.com', { transports: ['websocket'] });
+const socket = io('https://web-shop-server.onrender.com', {
+  transports: ['websocket'],
+});
 
 function Chat(props) {
   const [page, setPage] = useState(1);
