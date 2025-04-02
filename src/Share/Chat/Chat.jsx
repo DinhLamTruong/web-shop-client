@@ -6,7 +6,7 @@ import { io } from 'socket.io-client';
 import ChatRoomsAPI from '../../API/ChatRoomsAPI';
 import './Chat.css';
 
-const socket = io('https://web-shop-server.onrender.com', {
+const socket = io('wss://web-shop-server.onrender.com', {
   transports: ['websocket'],
 });
 
