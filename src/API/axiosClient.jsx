@@ -6,7 +6,7 @@ import queryString from 'query-string';
 const axiosClient = axios.create({
   // baseURL: 'http://localhost:5000',
   // baseURL: 'https://web-shop-server.onrender.com',
-  baseURL: 'web-shop-server-production.up.railway.app',
+  baseURL: 'https://web-shop-server-production.up.railway.app',
   headers: {
     'content-type': 'application/json',
   },
